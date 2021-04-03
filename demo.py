@@ -20,7 +20,7 @@ title = "wav2vec 2.0"
 description = "demo for Facebook AI wav2vec 2.0. To use it, simply upload your audio, or click one of the examples to load them. Read more at the links below."
 article = "<p style='text-align: center'><a href='https://arxiv.org/abs/2006.11477'>wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations</a> | <a href='https://github.com/pytorch/fairseq'>Github Repo</a></p>"
 examples = [
-    ['poem.wav']
+    ["poem.wav"]
 ]
 
 gr.Interface(wav2vec2, inputs, outputs, title=title, description=description, article=article, examples=examples).launch()
