@@ -11,8 +11,7 @@ def wav2vec2(audio):
     input_values = tokenizer(audio_input, return_tensors="pt").input_values
     logits = model(input_values).logits
     predicted_ids = torch.argmax(logits, dim=-1)
-    transcription = tokenizer.batch_decode(predicted_ids)[0]
-    return transcription
+    return tokenizer.batch_decode(predicted_ids)[0]
 
 inputs = gr.inputs.Audio(label="Input Audio", type="file")
 outputs =  gr.outputs.Textbox(label="Output Text")
@@ -20,5 +19,8 @@ outputs =  gr.outputs.Textbox(label="Output Text")
 title = "wav2vec 2.0"
 description = "demo for Facebook AI wav2vec 2.0. To use it, simply upload your audio, or click one of the examples to load them. Read more at the links below."
 article = "<p style='text-align: center'><a href='https://arxiv.org/abs/2006.11477'>wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations</a> | <a href='https://github.com/pytorch/fairseq'>Github Repo</a></p>"
+examples = [
+    ['poem.wav']
+]
 
 gr.Interface(wav2vec2, inputs, outputs, title=title, description=description, article=article).launch()
