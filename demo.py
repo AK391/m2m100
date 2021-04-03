@@ -23,4 +23,4 @@ examples = [
     ['poem.wav']
 ]
 
-gr.Interface(wav2vec2, inputs, outputs, title=title, description=description, article=article).launch()
+gr.Interface(wav2vec2, inputs, outputs, title=title, description=description, article=article, examples=examples).launch()
