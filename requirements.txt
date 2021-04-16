@@ -1,4 +1,6 @@
 torch
 torchvision
 transformers
+sentencepiece
+gradio
 SoundFile
