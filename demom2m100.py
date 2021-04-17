@@ -10,12 +10,17 @@ def translate(text, inlang, outlang):
   generated_tokens = model.generate(**encoded_hi, forced_bos_token_id=tokenizer.get_lang_id(outlang))
   return tokenizer.batch_decode(generated_tokens, skip_special_tokens=True)[0]
 
-inputs = gr.inputs.Textbox(lines=5, label="Input Text")
+inputs = [
+  gr.inputs.Textbox(lines=5, label="Input Text"),
+  gr.inputs.Textbox(lines=1, label="Input Language", placeholder="en"),
+  gr.inputs.Textbox(lines=1, label="Output Language", placeholder="fr")
+]
+  
 outputs = gr.outputs.Textbox(label="Output Text")
 
 title = "m2m100"
 description = "demo for Facebook m2m100 english to french. To use it, simply add your text, or click one of the examples to load them. Read more at the links below."
-article = """<p style='text-align: center'><a href='https://arxiv.org/abs/2010.11125'>Beyond English-Centric Multilingual Machine Translation</a> | <a href='https://github.com/pytorch/fairseq'>Github Repo</a> | Languages covered
+article = """<p style='text-align: center'><a href='https://arxiv.org/abs/2010.11125'>Beyond English-Centric Multilingual Machine Translation</a> | <a href='https://github.com/pytorch/fairseq'>Github Repo</a> | Available Languages
 Afrikaans (af), Amharic (am), Arabic (ar), Asturian (ast), Azerbaijani (az), Bashkir (ba), Belarusian (be), Bulgarian (bg), Bengali (bn), Breton (br), Bosnian (bs), Catalan; Valencian (ca), Cebuano (ceb), Czech (cs), Welsh (cy),
 Danish (da), German (de), Greeek (el), English (en), Spanish (es), Estonian (et), Persian (fa), Fulah (ff), Finnish (fi), French (fr), Western Frisian (fy), Irish (ga),
 Gaelic; Scottish Gaelic (gd), Galician (gl), Gujarati (gu), Hausa (ha), Hebrew (he), Hindi (hi), Croatian (hr), Haitian;
