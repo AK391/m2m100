@@ -17,4 +17,9 @@ title = "m2m100"
 description = "demo for Facebook m2m100 english to french. To use it, simply add your text, or click one of the examples to load them. Read more at the links below."
 article = "<p style='text-align: center'><a href='https://arxiv.org/abs/2010.11125'>Beyond English-Centric Multilingual Machine Translation</a> | <a href='https://github.com/pytorch/fairseq'>Github Repo</a></p>"
 
-gr.Interface(translate, inputs, outputs, title=title, description=description, article=article).launch()
+examples = [
+  ["Life is like a box of chocolate."],
+  ["How many miles is it from Earth to Neptune?"]
+]
+
+gr.Interface(translate, inputs, outputs, title=title, description=description, article=article, examples=examples).launch()
