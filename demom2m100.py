@@ -32,8 +32,8 @@ Serbian (sr), Swati (ss), Sundanese (su), Swedish (sv), Swahili (sw), Tamil (ta)
 Yoruba (yo), Chinese (zh), Zulu (zu)</p>"""
 
 examples = [
-  ["Life is like a box of chocolate."],
-  ["How many miles is it from Earth to Neptune?"]
+  ["Life is like a box of chocolate.", "en", "fr"],
+  ["How many miles is it from Earth to Neptune?", "en", "fr"]
 ]
 
 gr.Interface(translate, inputs, outputs, title=title, description=description, article=article, examples=examples).launch()
